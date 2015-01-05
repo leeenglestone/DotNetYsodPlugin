@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cookie Popup",
+  "description": "This extension shows a cookie information callout/popup",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "cookie.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [ 
+	"cookies",
+	"http://*/*",
+    "https://*/*",
+	"tabs"
+  ]
+}
