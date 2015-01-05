@@ -8,67 +8,41 @@ if (!chrome.cookies) {
 }
 */
 
-function CookieHelper() {
+function YsodHelper() {
 	
 	// Not using this
-	this.pinnedCookies = {};
+	//this.pinnedCookies = {};
 	
 	// Not using this
 	this.reset = function() {
-		this.pinnedCookies = {};
+		//this.pinnedCookies = {};
 	}
 	
 	// Show Cookies method
-	this.showCookies = function() {
+	this.convertFilePath = function() {
 	
-		// Get all cookies
-		chrome.cookies.getAll({}, function(cookies) {
-			
-			var tblCookies = document.getElementById('tblCookies');
-					
-			// Determine active tab					
-			chrome.tabs.query({'active': true}, function (tabs) {
-			
-				// Work out domain
-				var domain = '';
-				var url = tabs[0].url;
-								
-				domain = url.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1];
-				
-				// Loop through cookies looking for ones for this current domain
-				for (var i in cookies) {
-      	  				
-					if (cookies[i].domain == domain) { 
-
-						// Create row and append to table
-						var trCookie = document.createElement('tr');
-						
-						var tdDomain = document.createElement('td');
-						tdDomain.innerHTML = cookies[i].domain;
-						
-						var tdName = document.createElement('td');
-						tdName.innerHTML = cookies[i].name;
-						
-						var tdValue = document.createElement('td');
-						tdValue.innerHTML = cookies[i].value;
-						
-						trCookie.appendChild(tdDomain);
-						trCookie.appendChild(tdName);
-						trCookie.appendChild(tdValue);
-						
-						tblCookies.appendChild(trCookie);																				
-					}
-				}
-			});			
-		});
+		var bolds = document.body.getElementsByTagName('b');
+		//alert('hi');
+		//alert(document.innerText);
+		
+		for(var x=0; x < bolds.length; x++)
+		{
+			if (bolds[x].innerText == 'Source File:')
+			{
+				alert('bingo');
+			}
+		}
+		
+		
+		alert(bolds.length);
 	}	
 }
 
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
     
-  var cookieHelper = new CookieHelper();
+  var ysodHelper = new YsodHelper();
   
-  cookieHelper.showCookies();
+  ysodHelper.convertFilePath();
   
 });

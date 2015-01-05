@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Cookies Extension</title>
+    <title>Ysod Extension</title>
     <style>
 	
 	body, table { font-size:1em; }
@@ -23,23 +23,27 @@
 	  
 	  .title { font-weight:bold; margin-bottom:10px; } 
 	  
-	  table#tblCookies { border-collapse:collapse; width:100%; }
-	  table#tblCookies td { border:1px solid #ccc; padding:3px; }
+	  
 	  
     </style>
 
+	<!-- http://stackoverflow.com/questions/5797661/replace-text-in-website-with-chrome-content-script-extension -->
+	
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
-     <script src="popup.js"></script>
+     <script src="ysod.js">
+	 
+	 
+	 </script>
+	 
   </head>
   <body>
 	<div class="title">Cookies</div>
-	<table id="tblCookies">
-	</table>
+	
   </body>
 </html>
 
