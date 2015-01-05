@@ -5,14 +5,20 @@
   "description": "This extension alters the YSOD page to include links",
   "version": "1.0",
 
-  "browser_action": {
-    
-    "default_popup": "ysod.html"
-  },
+  
+  "content_scripts": [
+	{
+		"matches": ["http://*/*"],
+		"js":["ysod.js"],
+		"run_at" : "document_end"
+	}
+  ],
   "permissions": [ 
+	"<all_urls>",
 	"cookies",
 	"http://*/*",
     "https://*/*",
+	"file:///*",
 	"tabs"
   ]
 }

@@ -2,47 +2,38 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-/*
-if (!chrome.cookies) {
-  chrome.cookies = chrome.experimental.cookies;
-}
-*/
+
 
 function YsodHelper() {
 	
 	// Not using this
-	//this.pinnedCookies = {};
-	
-	// Not using this
 	this.reset = function() {
-		//this.pinnedCookies = {};
+		alert('reset');
 	}
 	
-	// Show Cookies method
 	this.convertFilePath = function() {
-	
-		var bolds = document.body.getElementsByTagName('b');
-		//alert('hi');
-		//alert(document.innerText);
-		
-		for(var x=0; x < bolds.length; x++)
-		{
-			if (bolds[x].innerText == 'Source File:')
-			{
-				alert('bingo');
-			}
-		}
-		
-		
-		alert(bolds.length);
+		var bolds = document.getElementsByTagName('b');
 	}	
 }
 
-// Run our kitten generation script as soon as the document's DOM is ready.
-document.addEventListener('DOMContentLoaded', function () {
-    
-  var ysodHelper = new YsodHelper();
+  var h1s = document.getElementsByTagName('h1');
   
-  ysodHelper.convertFilePath();
+  if(h1s[0].innerText.indexOf('Server Error in') > -1)
+  {
+	//alert(h1s[0].innerHtml);
+	//return;
+  }
   
-});
+  var file = document.body.innerHTML.match(/Source File: <\/b>(.*?)<b>/)[1].trim();
+  //alert(file);
+  
+	var bolds = document.getElementsByTagName('b');
+	
+	for(var x=0; x < bolds.length; x++)
+	{
+		if(bolds[x].innerText.indexOf('Source File:') > -1)
+		{
+			bolds[x].innerHTML = '<a href="file:///' + file +'" target="_blank">' + file + '</a>'
+		}
+	}
+	
