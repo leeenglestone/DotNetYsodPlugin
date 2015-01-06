@@ -2,9 +2,8 @@
   "manifest_version": 2,
 
   "name": "Ysod Helper",
-  "description": "This extension alters the YSOD page to include links",
-  "version": "1.0",
-
+  "description": "This extension alters the YSOD page to include links to files. Note: It requires the LocalLinks extension installed to work",
+  "version": "1.0",  
   
   "content_scripts": [
 	{
@@ -14,11 +13,9 @@
 	}
   ],
   "permissions": [ 
-	"<all_urls>",
-	"cookies",
+	"<all_urls>",	
 	"http://*/*",
     "https://*/*",
-	"file:///*",
-	"tabs"
+	"file:///*"	
   ]
 }
