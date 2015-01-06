@@ -12,11 +12,13 @@ function YsodHelper() {
 	}
 	
 	this.convertFilePath = function() {
-		var bolds = document.getElementsByTagName('b');
+		//var bolds = document.getElementsByTagName('b');
 	}	
 }
 
   var h1s = document.getElementsByTagName('h1');
+  
+  
   
   if(h1s[0].innerText.indexOf('Server Error in') > -1)
   {
@@ -24,7 +26,10 @@ function YsodHelper() {
 	//return;
   }
   
-  var file = document.body.innerHTML.match(/Source File: <\/b>(.*?)<b>/)[1].trim();
+  //alert(document.body.innerHTML);
+  
+  //var file = document.body.innerHTML.match(/Source File:<\/b>(.*?)<b>/)[1].trim();
+  var file = document.body.innerHTML.match(/Source File: <\/b>([\s\S]*?)<b>/m)[1].trim();
   //alert(file);
   
 	var bolds = document.getElementsByTagName('b');
@@ -33,7 +38,7 @@ function YsodHelper() {
 	{
 		if(bolds[x].innerText.indexOf('Source File:') > -1)
 		{
-			bolds[x].innerHTML = '<a href="file:///' + file +'" target="_blank">' + file + '</a>'
+			bolds[x].innerHTML = 'Source File with link : <a href="file:///' + file +'" target="_blank">' + file + '</a>'
 		}
 	}
 	
