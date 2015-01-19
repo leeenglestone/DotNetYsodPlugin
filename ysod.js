@@ -5,7 +5,7 @@
 	(function ErrorFinder() {
     
   var regex = /(.?:\\.*?\.(vb|cs))/g,
-      errorLinkText = '<a style="color:green; font-weight:bold;" href="file:///$1" target="_blank">$1</a>';
+	errorLinkText = '<a style="color:green; font-weight:bold;" href="file:///$1" target="_blank">$1</a>';
       
   var IsYellowScreenOfDeath = function() {
     var heading1s = document.getElementsByTagName('h1');
